@@ -1,303 +1,607 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Page d'accueil</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+
+    <title>Empire-immo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-  <style>
-  body {
-    transition: background-color 0.3s, color 0.3s;
-    padding-top: 70px; /* Hauteur de ta barre de navigation */
-  }
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
-  /* Mode sombre */
-  body.dark-mode {
-    background-color: #171515ff !important;
-    color: white !important;
-  }
-
-  /* Bouton de changement de mode */
-  #theme-toggle {
-    padding: 8px 16px;
-    margin: 10px;
-    border: none;
-    border-radius: 4px;
-    background: #ccc;
-    cursor: pointer;
-  }
-
-  .welcome-section {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .welcome-section::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url("background.png.jpg");
-    background-size: cover;
-    background-position: center;
-    filter: blur(3px) brightness(70%);
-    z-index: 1;
-  }
-
-  .welcome-section > * {
-    position: relative;
-    z-index: 2;
-  }
-
-  .btn-custom {
-    margin: 10px;
-    width: 150px;
-  }
-
-  /* ✅ Barre de navigation fixe */
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-</style>
-
-</head>
+  </head>
 
 <body>
 
-  <!-- ✅ Header -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <div class="sub-header">
     <div class="container">
-        
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <li><i class="fa fa-envelope"></i> Empireimmo@gmail.com</li>
+            <li><i class="fa fa-map"></i> Yaoundé- Cameroun</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                  <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
       <img src="logo.png" alt="Logo Empire-Immo" width="40" height="40" class="me-2">
       Empire-Immo
     </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="/apropos">À propos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-        </ul>
-         <a href="#" class="btn btn-dark ms-3">Publier un logement</a>
+    
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="/locataire" class="active">Accueil</a></li>
+                      <li><a href="/properties">Logements</a></li>
+                      <li><a href="/property-details">Détails des logements</a></li>
+                      <li><a href="/contact">Contactez nous</a></li>
+                      <li><a href="/gerer-profil"><i class="fa fa-user"></i> Mon profil</a></li>
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <li>
+  <button id="darkModeToggle" class="btn btn-sm btn-outline-dark">🌙 Mode sombre</button>
+</li>
 
-         <button id="theme-toggle">Changer mode</button>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
 
-<script>
-  // Appliquer le thème sauvegardé
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
+  <div class="main-banner">
+    <div class="owl-carousel owl-banner">
+      <div class="item item-1">
+        <div class="header-text">
+          <span class="category">Toronto, <em>Canada</em></span>
+          <h2>Hurry!<br>Get the Best Villa for you</h2>
+        </div>
+      </div>
+      <div class="item item-2">
+        <div class="header-text">
+          <span class="category">Melbourne, <em>Australia</em></span>
+          <h2>Be Quick!<br>Get the best villa in town</h2>
+        </div>
+      </div>
+      <div class="item item-3">
+        <div class="header-text">
+          <span class="category">Miami, <em>South Florida</em></span>
+          <h2>Act Now!<br>Get the highest level penthouse</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="left-image">
+            <img src="assets/images/featured.jpg" alt="">
+            <a href="property-details.html"><img src="assets/images/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="section-heading">
+            <h6>| Featured</h6>
+            <h2>Best Appartment &amp; Sea view</h2>
+          </div>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Best useful links ?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                Get <strong>the best villa</strong> website template in HTML CSS and Bootstrap for your business. TemplateMo provides you the <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">best free CSS templates</a> in the world. Please tell your friends about it.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  How does this work ?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Why is Villa Agency the best ?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="info-table">
+            <ul>
+              <li>
+                <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                <h4>250 m2<br><span>Total Flat Space</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                <h4>Contract<br><span>Contract Ready</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                <h4>Payment<br><span>Payment Process</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
+                <h4>Safety<br><span>24/7 Under Control</span></h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+          <div class="section-heading text-center">
+            <h6>| Video View</h6>
+            <h2>Get Closer View & Different Feeling</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="video-frame">
+            <img src="assets/images/video-frame.jpg" alt="">
+            <a href="Video1.mp4" target="_blank"><i class="fa fa-play"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fun-facts">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="34" data-speed="1000"></h2>
+                   <p class="count-text ">Buildings<br>Finished Now</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="12" data-speed="1000"></h2>
+                  <p class="count-text ">Years<br>Experience</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="24" data-speed="1000"></h2>
+                  <p class="count-text ">Awwards<br>Won 2023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section best-deal">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="section-heading">
+            <h6>| Best Deal</h6>
+            <h2>Find Your Best Deal Right Now!</h2>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="tabs-content">
+            <div class="row">
+              <div class="nav-wrapper ">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment" aria-selected="true">Appartment</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#villa" type="button" role="tab" aria-controls="villa" aria-selected="false">Villa House</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse" type="button" role="tab" aria-controls="penthouse" aria-selected="false">Penthouse</button>
+                  </li>
+                </ul>
+              </div>              
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="appartment" role="tabpanel" aria-labelledby="appartment-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Total Flat Space <span>185 m2</span></li>
+                          <li>Floor number <span>26th</span></li>
+                          <li>Number of rooms <span>4</span></li>
+                          <li>Parking Available <span>Yes</span></li>
+                          <li>Payment Process <span>Bank</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/deal-01.jpg" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>Extra Info About Property</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. 
+                      <br><br>When you need free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Portfolio, TemplateMo One Page Layouts, etc.</p>
+                      <div class="icon-button">
+                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="villa" role="tabpanel" aria-labelledby="villa-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Total Flat Space <span>250 m2</span></li>
+                          <li>Floor number <span>26th</span></li>
+                          <li>Number of rooms <span>5</span></li>
+                          <li>Parking Available <span>Yes</span></li>
+                          <li>Payment Process <span>Bank</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/deal-02.jpg" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>Detail Info About Villa</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <div class="icon-button">
+                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="penthouse" role="tabpanel" aria-labelledby="penthouse-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Total Flat Space <span>320 m2</span></li>
+                          <li>Floor number <span>34th</span></li>
+                          <li>Number of rooms <span>6</span></li>
+                          <li>Parking Available <span>Yes</span></li>
+                          <li>Payment Process <span>Bank</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/deal-03.jpg" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>Extra Info About Penthouse</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <div class="icon-button">
+                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="properties section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+          <div class="section-heading text-center">
+            <h6>| Properties</h6>
+            <h2>We Provide The Best Property You Like</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="/property-details"><img src="assets/images/property-01.jpg" alt=""></a>
+            <span class="category">Luxury Villa</span>
+            <h6>$2.264.000</h6>
+            <h4><a href="/property-details">18 New Street Miami, OR 97219</a></h4>
+            <ul>
+              <li>Bedrooms: <span>8</span></li>
+              <li>Bathrooms: <span>8</span></li>
+              <li>Area: <span>545m2</span></li>
+              <li>Floor: <span>3</span></li>
+              <li>Parking: <span>6 spots</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="/property-details">Schedule a visit</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="/property-details"><img src="assets/images/property-02.jpg" alt=""></a>
+            <span class="category">Luxury Villa</span>
+            <h6>$1.180.000</h6>
+            <h4><a href="/property-details">54 Mid Street Florida, OR 27001</a></h4>
+            <ul>
+              <li>Bedrooms: <span>6</span></li>
+              <li>Bathrooms: <span>5</span></li>
+              <li>Area: <span>450m2</span></li>
+              <li>Floor: <span>3</span></li>
+              <li>Parking: <span>8 spots</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="/property-details">Schedule a visit</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="/property-details"><img src="assets/images/property-03.jpg" alt=""></a>
+            <span class="category">Luxury Villa</span>
+            <h6>$1.460.000</h6>
+            <h4><a href="/property-details">26 Old Street Miami, OR 38540</a></h4>
+            <ul>
+              <li>Bedrooms: <span>5</span></li>
+              <li>Bathrooms: <span>4</span></li>
+              <li>Area: <span>225m2</span></li>
+              <li>Floor: <span>3</span></li>
+              <li>Parking: <span>10 spots</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="/property-details">Schedule a visit</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="/property-details"><img src="assets/images/property-04.jpg" alt=""></a>
+            <span class="category">Apartment</span>
+            <h6>$584.500</h6>
+            <h4><a href="/property-details">12 New Street Miami, OR 12650</a></h4>
+            <ul>
+              <li>Bedrooms: <span>4</span></li>
+              <li>Bathrooms: <span>3</span></li>
+              <li>Area: <span>125m2</span></li>
+              <li>Floor: <span>25th</span></li>
+              <li>Parking: <span>2 cars</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="/property-details">Schedule a visit</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="/property-details"><img src="assets/images/property-05.jpg" alt=""></a>
+            <span class="category">Penthouse</span>
+            <h6>$925.600</h6>
+            <h4><a href="/property-details">34 Beach Street Miami, OR 42680</a></h4>
+            <ul>
+              <li>Bedrooms: <span>4</span></li>
+              <li>Bathrooms: <span>4</span></li>
+              <li>Area: <span>180m2</span></li>
+              <li>Floor: <span>38th</span></li>
+              <li>Parking: <span>2 cars</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="/property-details">Schedule a visit</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <a href="/property-details"><img src="assets/images/property-06.jpg" alt=""></a>
+            <span class="category">Modern Condo</span>
+            <h6>$450.000</h6>
+            <h4><a href="/property-details">22 New Street Portland, OR 16540</a></h4>
+            <ul>
+              <li>Bedrooms: <span>3</span></li>
+              <li>Bathrooms: <span>2</span></li>
+              <li>Area: <span>165m2</span></li>
+              <li>Floor: <span>26th</span></li>
+              <li>Parking: <span>3 cars</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="/property-details">Schedule a visit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+          <div class="section-heading text-center">
+            <h6>| Contactez nous</h6>
+            <h2>Contactez nos agents</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.9054858639884!2d11.548906373575115!3d3.8304506485898364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bc5347ce2ba5d%3A0x76de28d6bce0db35!2sAwae%20Escalier!5e0!3m2!1sen!2scm!4v1758495773324!5m2!1sen!2scm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="item phone">
+                <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
+                <h6>+237 699 77 11 46<br><span>Numéro de téléphone</span></h6>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="item email">
+                <img src="assets/images/email-icon.png" alt="" style="max-width: 52px;">
+                <h6>Empireimmo@gmail.com<br><span>Email</span></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <form id="contact-form" action="" method="post">
+            <div class="row">
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="name">Nom complet</label>
+                  <input type="name" name="name" id="name" placeholder="Votre nom..." autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="email">L'adresse email</label>
+                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Votre adresse..." required="">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="subject">Sujet</label>
+                  <input type="subject" name="subject" id="subject" placeholder="Sujet..." autocomplete="on" >
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="message">Message</label>
+                  <textarea name="message" id="message" placeholder="Votre Message"></textarea>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">Envoyer</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-8">
+        <p>Copyright © 2020 Empire_Immo All rights reserved. 
+        
+        Design: <a rel="nofollow" href="#" target="_blank">Ruthy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+
+  <script>
+  const toggleButton = document.getElementById("darkModeToggle");
+  const body = document.body;
+
+  // Vérifie si l'utilisateur a déjà choisi un mode (sauvegardé dans localStorage)
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    toggleButton.textContent = "☀️ Mode clair";
   }
 
-  // Basculer entre sombre et clair
-  document.getElementById('theme-toggle').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme',
-      document.body.classList.contains('dark-mode') ? 'dark' : 'light'
-    );
+  toggleButton.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+      toggleButton.textContent = "☀️ Mode clair";
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+      toggleButton.textContent = "🌙 Mode sombre";
+    }
   });
 </script>
-      </div>
-    </div>
-  </nav>
 
-
-  <!-- ✅ Message de bienvenue -->
-  <div class="welcome-section">
-    <h1 class="fw-bold mb-2">Bienvenue sur Empire-Immo</h1>
-    <p class="mb-2">Votre plateforme de confiance pour location immobilière.</p>
-    <div>
-      <a href="/connexion" class="btn btn-warning btn-custom">Se connecter</a>
-      <a href="/creer_compte" class="btn btn-warning btn-custom">S'inscrire</a>
-    </div>
-  </div>
-
- <div>
-  <section class="container my-5">
-  <h3 class="mb-4 text-center">Recherchez un logement</h3>
-  <form class="row g-3 justify-content-center">
-    <div class="col-md-3">
-      <select class="form-select" aria-label="Type de bien">
-        <option selected>Type de bien</option>
-        <option value="1">Appartement</option>
-        <option value="2">Maison</option>
-        <option value="3">Studio</option>
-         <option value="3">Chambre</option>
-              <option value="3">Villa</option>
-      </select>
-        </div>
-    <div class="col-md-3">
-      <input type="text" class="form-control" placeholder="Ville ou quartier" />
-    </div>
-    <div class="col-md-3">
-      <input type="number" class="form-control" placeholder="Budget max (FCFA)" />
-    </div>
-    <div class="col-md-2">
-      <button type="submit" class="btn btn-secondary w-100">Rechercher</button>
-    </div>
- </div>
-
- <section class="position-relative" style="height: 100vh; overflow: hidden;">
-    <video autoplay muted loop playsinline
-        class="position-absolute w-100 h-100"
-        style="object-fit: cover; z-index: -1;">
-        <source src="{{ asset('video1.mp4') }}" type="video/mp4">
-  
-    </video>
-
-</section>
-
- <section id="properties" class="container my-5">
-  <h3 class="mb-4 text-center">Nos biens en vedette</h3>
-  <div class="row g-4">
-    
-    <!-- Appartement -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="photo1.png" class="card-img-top" alt="Appartement moderne">
-        <div class="card-body text-center">
-          <h5 class="card-title">Appartement moderne</h5>
-          <p class="card-text">2 chambres, centre-ville, 750 000FCFA/mois</p>
-          <a href="#" class="btn btn-outline-dark btn-sm">Voir détails</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Maison -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="photo2.png" class="card-img-top" alt="Maison familiale">
-        <div class="card-body text-center">
-          <h5 class="card-title">Maison familiale</h5>
-          <p class="card-text">4 chambres, jardin, 120 000FCFA/mois</p>
-          <a href="#" class="btn btn-outline-dark btn-sm">Voir détails</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Studio -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <img src="photo3.png" class="card-img-top" alt="Studio cosy">
-        <div class="card-body text-center">
-          <h5 class="card-title">Studio cosy</h5>
-          <p class="card-text">Proche université, 450 000FCFA/mois</p>
-          <a href="#" class="btn btn-outline-dark btn-sm">Voir détails</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="container my-5 text-center" id="about">
-  <h3 class="mb-4">À propos de Empire-Immo</h3>
-  <img src="photo4.png" style="max-width: 600px; margin: 0 auto;">
-  <p style="max-width: 600px; margin: 0 auto;">
-    Chez Empire-Immo, nous nous engageons à simplifier la recherche et la gestion de logements pour nos utilisateurs. 
-    Grâce à notre plateforme innovante, nous mettons à disposition un large choix de biens immobiliers adaptés à chaque besoin, 
-    tout en garantissant un service fiable, sécurisé et accessible. Notre équipe passionnée travaille sans relâche pour offrir 
-    une expérience utilisateur optimale, facilitant ainsi laccès au logement pour tous.
-  </p>
-</section>
-
-  <h3 class="mb-4 text-center">Découvrez nos partenaires</h3>
-<section class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center fw-bold mb-4">Témoignages de nos clients</h2>
-        <div class="row g-4">
-
-            <!-- Témoignage 1 -->
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <img src="{{ asset('photo13.jpg') }}" alt="Jean Dupont" 
-                         class="rounded-circle mx-auto d-block mb-3" width="150" height="150">
-                    <p class="fst-italic">"Empire-Immo m’a permis de trouver un appartement en moins de 3 jours, sans me déplacer !"</p>
-                    <h6 class="fw-bold mb-0">Jean Dupont</h6>
-                    <small class="text-muted">Propriétaire</small>
-                </div>
-            </div>
-
-            <!-- Témoignage 2 -->
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <img src="{{ asset('photo14.jpg') }}" alt="Marie Kamdem" 
-                         class="rounded-circle mx-auto d-block mb-3" width="150" height="150">
-                    <p class="fst-italic">"Une plateforme simple, rapide et efficace. Je recommande à 100%."</p>
-                    <h6 class="fw-bold mb-0">Marie Kamdem</h6>
-                    <small class="text-muted">Client satisfait</small>
-                </div>
-            </div>
-
-            <!-- Témoignage 3 -->
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <img src="{{ asset('photo15.jpg') }}" alt="Paul Nguema" 
-                         class="rounded-circle mx-auto d-block mb-3" width="150" height="150">
-                    <p class="fst-italic">"Grâce à Empire-Immo, j’ai loué mon logement en moins d’une semaine."</p>
-                    <h6 class="fw-bold mb-0">Paul Nguema</h6>
-                    <small class="text-muted">Etudiante</small>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- Section Commentaires -->
-<section class="container my-5" id="commentaires">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h3 class="mb-4 text-center">Laissez un commentaire</h3>
-      <form>
-        <div class="mb-3">
-          <label for="nom" class="form-label">Nom</label>
-          <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Adresse e-mail</label>
-          <input type="email" class="form-control" id="email" placeholder="exemple@email.com" required>
-        </div>
-        <div class="mb-3">
-          <label for="commentaire" class="form-label">Votre commentaire</label>
-          <textarea class="form-control" id="commentaire" rows="4" placeholder="Écrivez votre message ici..." required></textarea>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-warning w-3  0">Envoyer</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-4">
-  <p>© 2025 ImmoGestion. Tous droits réservés.</p>
-  <p>Contactez-nous : contact@immogestion.com</p>
-</footer>
-
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
 </html>

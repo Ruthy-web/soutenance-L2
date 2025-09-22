@@ -95,7 +95,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#">Accueil</a></li>
           <li class="nav-item"><a class="nav-link" href="/apropos">À propos</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/creer_compte">Contact</a></li>
         </ul>
 
          <button id="theme-toggle">Changer mode</button>
@@ -175,8 +175,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Appartement moderne</h5>
           <p class="card-text">2 chambres, centre-ville, 750 000FCFA/mois</p>
-          <a href="#" class="btn btn-outline-dark btn-sm"
-   data-bs-toggle="modal" data-bs-target="#detailsModal1">
+          <a href="/creer_compte" class="btn btn-outline-dark btn-sm">
    Voir détails
 </a>
         </div>
@@ -190,7 +189,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Maison familiale</h5>
           <p class="card-text">4 chambres, jardin, 120 000FCFA/mois</p>
-          <a href="#" class="btn btn-outline-dark btn-sm">Voir détails</a>
+          <a href="/creer_compte" class="btn btn-outline-dark btn-sm">Voir détails</a>
         </div>
       </div>
     </div>
@@ -202,7 +201,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Studio cosy</h5>
           <p class="card-text">Proche université, 450 000FCFA/mois</p>
-          <a href="#" class="btn btn-outline-dark btn-sm">Voir détails</a>
+          <a href="/creer_compte" class="btn btn-outline-dark btn-sm">Voir détails</a>
         </div>
       </div>
     </div>
@@ -328,46 +327,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
-<!-- ✅ Bouton sur la carte -->
-<a href="#" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#detailsModal1">
-  Voir détails
-</a>
 
-<!-- ✅ Modal -->
-<div class="modal fade" id="detailsModal1" tabindex="-1" aria-labelledby="detailsModalLabel1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      
-      <!-- En-tête -->
-      <div class="modal-header">
-        <h5 class="modal-title" id="detailsModalLabel1">Appartement moderne</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-      </div>
-
-      <!-- Corps du modal -->
-      <div class="modal-body">
-        <img src="photo1.png" class="img-fluid mb-3" alt="Appartement moderne">
-
-        <!-- ✅ Infos logement -->
-        <p><strong>Type :</strong> Appartement moderne</p>
-        <p><strong>Chambres :</strong> 2</p>
-        <p><strong>Localisation :</strong> Centre-ville</p>
-        <p><strong>Loyer :</strong> 750 000 FCFA / mois</p>
-        <p>
-          Bel appartement moderne situé au cœur de la ville, idéal pour les familles ou les jeunes professionnels.
-          Proche des commerces, transports et écoles.
-        </p>
-      </div>
-
-      <!-- Pied du modal -->
-      <div class="modal-footer">
-        <a href="/reserver/appartement-1" class="btn btn-warning">Réserver</a>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
 </body>
