@@ -39,12 +39,12 @@
     }
   </style>
 </head>
-<body>
+<body> 
 
-  <div class="form-container">
     <form method="POST" action="/creer_compte" > @csrf 
       <h2 class="mb-4 text-center">Veuillez créer un compte</h2>
-
+<div class="form-container">
+   
       <div class="mb-3">
         <label for="nom" class="form-label">Nom</label>
         <input type="text" class="form-control" id="nom" name="nom" required>
@@ -67,22 +67,26 @@
 
       <div class="mb-3">
         <label for="confirm-password" class="form-label">Confirmer mot de passe</label>
-        <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+<input type="password" class="form-control" id="confirm-password" name="password_confirmation" required>
+
       </div>
 
  <div class="container mb-3">
 
-  <h5>Statut:</h5>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="statut" id="locataire" value="locataire">
-    <label class="form-check-label" for="locataire">Locataire</label>
-  </div>
+  <div class="form-group">
+    <label>Status :</label><br>
 
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" name="statut" id="bailleur" value="bailleur">
-    <label class="form-check-label" for="bailleur">Bailleur</label>
-  </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="status" id="locataire" value="locataire" checked>
+        <label class="form-check-label" for="locataire">Locataire</label>
+    </div>
+
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="status" id="bailleur" value="bailleur">
+        <label class="form-check-label" for="bailleur">Bailleur</label>
+    </div>
 </div>
+
 
       <div class="text-center mb-3">
         <a href="/connexion">Vous avez déjà un compte ? Connectez-vous</a>

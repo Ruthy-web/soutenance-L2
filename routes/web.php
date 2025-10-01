@@ -5,11 +5,18 @@ use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\BienController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PanoramaController;
+use App\Http\Controllers\PaiementController;
+
+use App\Http\Controllers\VirtualTourController;
 
 
-
-
+Route::get('connexion', function () {
+    return view('livewire.auth.connexion');
+})->name('connexion');
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,11 +44,11 @@ Route::get('test', function(){
 
 Route::get('locataire', function(){
     return view('locataire');
-})->name('locataire');
+})->name('locataire.dashboard');
 
 Route::get('bailleur', function(){
     return view('bailleur');
-})->name('bailleur');
+})->name('bailleur.dashboard');
 
 Route::get('publier_logement', function(){
     return view('publier_logement');
@@ -58,6 +65,10 @@ Route::get('property-details', function () {
 Route::get('visite_virtuelle', function () {
     return view('visite_virtuelle');
 })->name('visite_virtuelle');
+
+Route::get('tour', function () {
+    return view('tour');
+})->name('tour');
 
 Route::get('laisser-avis', function () {
     return view('laisser-avis');
@@ -99,7 +110,109 @@ Route::get('fonctionnalités', function () {
     return view('fonctionnalités');
 })->name('fonctionnalités');
 
-Route::post('/creer_compte', [RegisterController::class, 'register']);
-Route::post('/connexion', [RegisterController::class, 'login']);
-Route::post('/motdepasse_oublié', [RegisterController::class, 'forgotpassword']);
+Route::get('panorama', function () {
+    return view('panorama');
+})->name('panorama');
 
+Route::get('inscription_success', function () {
+    return view('inscription_success');
+})->name('inscription_success');
+
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+
+
+Route::get('/recherche-logement', [BienController::class, 'recherche'])->name('biens.recherche');
+
+
+Route::post('/paiement', [PaiementController::class, 'process'])->name('paiement.process');
+
+
+Route::view('/capture', 'capture');
+Route::post('/upload-panorama', function (Request $request) {
+    foreach ($request->allFiles() as $file) {
+        $file->storeAs('public/panoramas', $file->getClientOriginalName());
+    }
+    return response()->json(['status' => 'ok']);
+
+    
+});
+
+
+
+Route::get('/assemble-panorama', [PanoramaController::class, 'assemble']);
+
+
+Route::post('/creer_compte', [RegisterController::class, 'register'])->name('creer_compte');
+Route::post('/connexion', [RegisterController::class, 'login'])->name('connexion.submit');
+Route::post('/motdepasse_oublié', [RegisterController::class, 'forgotpassword']);
+use App\Http\Controllers\Admin\UserController;
+
+Route::prefix('admin')->group(function () {
+    Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
+});
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
+});
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Virtual Tour Routes
+|--------------------------------------------------------------------------
+*/
+
+// Main virtual tour page
+Route::get('/virtual-tour', [VirtualTourController::class, 'show'])
+    ->name('virtual-tour.show');
+
+// Show specific tour from database
+Route::get('/virtual-tour/{id}', [VirtualTourController::class, 'showFromDatabase'])
+    ->name('virtual-tour.detail');
+
+// API endpoints for dynamic loading
+Route::prefix('api/virtual-tour')->group(function () {
+    // Get all panoramas
+    Route::get('/panoramas', [VirtualTourController::class, 'getAllPanoramas'])
+        ->name('api.virtual-tour.panoramas');
+    
+    // Get specific panorama
+    Route::get('/panorama/{id}', [VirtualTourController::class, 'getPanorama'])
+        ->name('api.virtual-tour.panorama');
+    
+    // Save configuration (admin only)
+    Route::post('/configuration', [VirtualTourController::class, 'saveConfiguration'])
+        ->middleware('auth')
+        ->name('api.virtual-tour.save-config');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Example of integration in existing routes
+|--------------------------------------------------------------------------
+*/
+
+// Property listing with virtual tour
+Route::get('/property/{id}', function($id) {
+    // $property = Property::findOrFail($id);
+    // return view('property.show', compact('property'));
+})->name('property.show');
+
+// Real estate agency virtual tours
+Route::get('/agency/tours', function() {
+    // $tours = Tour::all();
+    // return view('agency.tours', compact('tours'));
+})->name('agency.tours');
+
+// Embed virtual tour in iframe
+Route::get('/embed/tour/{id}', function($id) {
+    // $tour = Tour::findOrFail($id);
+    // return view('virtual-tour-embed', compact('tour'));
+})->name('tour.embed');

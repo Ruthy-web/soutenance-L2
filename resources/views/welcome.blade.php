@@ -129,31 +129,39 @@
     </div>
   </div>
 
- <div>
-  <section class="container my-5">
+<section class="container my-5">
   <h3 class="mb-4 text-center">Recherchez un logement</h3>
-  <form class="row g-3 justify-content-center">
+  <form method="GET" action="{{ route('biens.recherche') }}" class="row g-3 justify-content-center">
+
+    <!-- Type de bien -->
     <div class="col-md-3">
-      <select class="form-select" aria-label="Type de bien">
-        <option selected>Type de bien</option>
-        <option value="1">Appartement</option>
-        <option value="2">Maison</option>
-        <option value="3">Studio</option>
-         <option value="3">Chambre</option>
-              <option value="3">Villa</option>
+      <select name="type" class="form-select" aria-label="Type de bien">
+        <option value="">Type de bien</option>
+        <option value="appartement">Appartement</option>
+        <option value="maison">Maison</option>
+        <option value="studio">Studio</option>
+        <option value="chambre">Chambre</option>
+        <option value="villa">Villa</option>
       </select>
-        </div>
-    <div class="col-md-3">
-      <input type="text" class="form-control" placeholder="Ville ou quartier" />
     </div>
+
+    <!-- Localisation -->
     <div class="col-md-3">
-      <input type="text" class="form-control" placeholder="Budget max (FCFA)" />
+      <input type="text" name="localisation" class="form-control" placeholder="Ville ou quartier" />
     </div>
+
+    <!-- Budget max -->
+    <div class="col-md-3">
+      <input type="number" name="max_prix" class="form-control" placeholder="Budget max (FCFA)" />
+    </div>
+
+    <!-- Bouton de recherche -->
     <div class="col-md-2">
-      <button type="submit" class="btn btn-secondary w-100">Rechercher</button>
+      <button type="submit" class="btn btn-warning w-100">Rechercher</button>
     </div>
- </div>
-  
+  </form>
+</section>
+
  <section class="position-relative" style="height: 100vh; overflow: hidden;">
     <video autoplay muted loop playsinline
         class="position-absolute w-100 h-100"

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('status')->default('locataire');
+
             $table->rememberToken();
             $table->timestamps();
         });

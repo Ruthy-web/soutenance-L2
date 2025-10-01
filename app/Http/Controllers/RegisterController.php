@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -11,50 +12,65 @@ use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
+    // Méthode d'inscription
     public function register(Request $request)
     {
-        $validated = $request->all();
+        $validated = $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6|confirmed',
+            'status' => 'required|in:locataire,bailleur',
+        ]);
 
-        // Création de l'utilisateur 
-        $user = User::create([
+        User::create([
             'nom' => $validated['nom'],
             'prenom' => $validated['prenom'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'status' => $validated['status'],
         ]);
 
-        return response()->json(['message' => 'Utilisateur enregistré avec succès', 'user' => $user]);
+        return redirect()->route('inscription_success')->with('success', 'Félicitations ! Votre compte a été créé avec succès.');
     }
 
-
-    public function login (Request $request)
+    // Méthode de connexion
+    public function login(Request $request)
     {
-        $validated = $request->all();
+        $credentials = $request->only('email', 'password');
 
-        $user = User::where('email', $validated['email'])->first();
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            $status = trim(strtolower($user->status));
 
-        if ($user) {
-            if(password_verify($validated['password'], $user->password)){
-                return response()->json(['message' => 'Utilisateur connecté avec succès', 'user' => $user]);
-            }    
+            switch ($status) {
+                case 'bailleur':
+                    return redirect()->route('bailleur.dashboard');
+                case 'locataire':
+                    return redirect()->route('locataire.dashboard');
+                default:
+                    return redirect('/')->withErrors(['status' => 'Rôle utilisateur inconnu.']);
+            }
         }
-        return response()->json(['message' => 'Identifiants invalides','user'=> null]);
+
+        return back()->withErrors([
+            'email' => 'Identifiants incorrects.',
+        ]);
     }
 
-     public function forgotpassword (Request $request)
+    // Méthode de réinitialisation de mot de passe
+    public function forgotpassword(Request $request)
     {
-        $validated = $request->all();
-        $email = $request->input('email');
+        $email = $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ])['email'];
 
         $token = Str::random(60);
 
-        // Envoyer l'email
         Mail::to($email)->send(new ResetPasswordEmail($token));
 
         return response()->json([
             'message' => 'Email envoyé avec succès à ' . $email
         ]);
-
     }
 }
-

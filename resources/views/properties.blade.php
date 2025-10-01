@@ -41,8 +41,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-8">
           <ul class="info">
-            <li><i class="fa fa-envelope"></i> info@company.com</li>
-            <li><i class="fa fa-map"></i> Sunny Isles Beach, FL 33160</li>
+            <li><i class="fa fa-envelope"></i> empireimmo@gmail.com</li>
+            <li><i class="fa fa-map"></i> Yacounde cameroun</li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">
@@ -71,7 +71,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="/locataire">Accueil</a></li>
-                      <li><a href="/properties" class="active">Logements</a></li>
+                      <li><a href="/properties" class="active">Biens</a></li>
                       <li><a href="/property-details">Details des logements</a></li>
                       <li><a href="/contact">Contactez nous</a></li>
                       <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
@@ -102,16 +102,16 @@
     <div class="container">
       <ul class="properties-filter">
         <li>
-          <a class="is_active" href="#!" data-filter="*">Show All</a>
+          <a class="is_active" href="#!" data-filter="*">Voir tout</a>
         </li>
         <li>
-          <a href="#!" data-filter=".adv">Apartment</a>
+          <a href="#!" data-filter=".adv">Appartement</a>
         </li>
         <li>
-          <a href="#!" data-filter=".str">Villa House</a>
+          <a href="#!" data-filter=".str">Villa </a>
         </li>
         <li>
-          <a href="#!" data-filter=".rac">Penthouse</a>
+          <a href="#!" data-filter=".rac">Chambres</a>
         </li>
       </ul>
       <div class="row properties-box">

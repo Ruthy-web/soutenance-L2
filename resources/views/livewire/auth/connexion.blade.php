@@ -42,7 +42,9 @@
 <body>
 
   <div class="form-container">
-    <form method ="POST" action="/connexion"> @csrf
+    <form method="POST" action="{{ route('connexion.submit') }}">
+  @csrf
+
       <h2 class="mb-4 text-center">Veuillez vous connecter </h2>
 
       <div class="mb-3">

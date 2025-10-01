@@ -469,7 +469,7 @@ Header Style
   height: 40px;
   line-height: 40px;
   text-transform: capitalize;
-  color: #1e1e1e;
+  color: #fbfafa;
   -webkit-transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
   -o-transition: all 0.4s ease 0s;
@@ -513,7 +513,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li a.active {
-  color: #ffc107;
+  color: #26ee17;
 }
 
 
@@ -867,6 +867,7 @@ Featured Style
 
 .featured .left-image img {
   padding-left: 55px;
+  border-radius: 15px;
 }
 
 .featured .left-image a {

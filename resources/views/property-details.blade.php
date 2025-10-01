@@ -199,7 +199,7 @@
       
       <!-- Réserver -->
       <div class="col-lg-3 col-md-6 mb-4">
-        <a href="/reserver" class="action-card p-3 border rounded d-block text-decoration-none">
+        <a href="/reservation" class="action-card p-3 border rounded d-block text-decoration-none">
           <i class="fa fa-calendar-check fa-2x mb-2 action-icon"></i>
           <h5>Réserver</h5>
         </a>

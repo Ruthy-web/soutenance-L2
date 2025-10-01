@@ -24,6 +24,12 @@
   </head>
 
 <body>
+  @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -75,8 +81,8 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="/locataire" class="active">Accueil</a></li>
-                      <li><a href="/properties">Logements</a></li>
-                      <li><a href="/property-details">Détails des logements</a></li>
+                      <li><a href="/properties">Biens</a></li>
+                      <li><a href="/property-details">Détails des biens</a></li>
                       <li><a href="/contact">Contactez nous</a></li>
                       <li><a href="/gerer-profil"><i class="fa fa-user"></i> Mon profil</a></li>
                   </ul>   
@@ -99,20 +105,20 @@
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
         <div class="header-text">
-          <span class="category">Toronto, <em>Canada</em></span>
-          <h2>Hurry!<br>Get the Best Villa for you</h2>
+          <span class="category">Yaoundé, <em>Cameroun</em></span>
+          <h2>Dépêchez-vous!<br>Obtiens ton meilleur logement</h2>
         </div>
       </div>
       <div class="item item-2">
         <div class="header-text">
-          <span class="category">Melbourne, <em>Australia</em></span>
-          <h2>Be Quick!<br>Get the best villa in town</h2>
+          <span class="category">Douala, <em>Cameroun</em></span>
+          <h2>Dépêchez-vous!<br>Ontenez la meilleur villa</h2>
         </div>
       </div>
       <div class="item item-3">
         <div class="header-text">
-          <span class="category">Miami, <em>South Florida</em></span>
-          <h2>Act Now!<br>Get the highest level penthouse</h2>
+          <span class="category">Garoua, <em>Cameroun</em></span>
+          <h2>Agissez maintenant!<br>Obtenez le meilleur appartement</h2>
         </div>
       </div>
     </div>
@@ -129,42 +135,43 @@
         </div>
         <div class="col-lg-5">
           <div class="section-heading">
-            <h6>| Featured</h6>
-            <h2>Best Appartment &amp; Sea view</h2>
+            <h6>| A la une</h6>
+            <h2>Meilleur appartement avec vue sur la mer</h2>
           </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Best useful links ?
+                  Liens utiles ?
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                Get <strong>the best villa</strong> website template in HTML CSS and Bootstrap for your business. TemplateMo provides you the <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">best free CSS templates</a> in the world. Please tell your friends about it.</div>
+                Obtenez <strong>la meilleur villa</strong> facebook <a href="https://www.google.com/facebook" target="_blank"></a> 
+              </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  How does this work ?
+                  Comment ca marche ?
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                 EmpireImmo est une plateforme immobilière intuitive qui permet aux utilisateurs de rechercher, visiter et réserver des biens en toute simplicité. Grâce à des visites virtuelles immersives, un système de recommandation intelligent et un espace sécurisé pour déposer leurs documents, les locataires trouvent rapidement le logement idéal, tandis que les propriétaires gèrent leurs annonces en toute autonomie
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Why is Villa Agency the best ?
+                  Pourquoi sommes-nous meilleurs ?
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  EmpireImmo se distingue comme la meilleure plateforme immobilière grâce à son approche innovante, centrée sur l’utilisateur. Nous combinons des visites virtuelles immersives, un système de recommandation intelligent, une interface sécurisée pour les documents légaux, et une expérience fluide adaptée à tous les profils. Avec plus de 12 ans d’expérience, 34 bâtiments livrés, et une équipe dédiée à la qualité et à la transparence, nous offrons bien plus qu’un simple catalogue de biens : nous créons une vraie passerelle entre rêve immobilier et réalité
                 </div>
               </div>
             </div>
@@ -175,19 +182,19 @@
             <ul>
               <li>
                 <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
-                <h4>250 m2<br><span>Total Flat Space</span></h4>
+                <h4>250 m2<br><span>superficie</span></h4>
               </li>
               <li>
                 <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
-                <h4>Contract<br><span>Contract Ready</span></h4>
+                <h4>Contrat<br><span>Contrat prêts</span></h4>
               </li>
               <li>
                 <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
-                <h4>Payment<br><span>Payment Process</span></h4>
+                <h4>Paiement<br><span>Possibilité de payer en ligne</span></h4>
               </li>
               <li>
                 <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
-                <h4>Safety<br><span>24/7 Under Control</span></h4>
+                <h4>Sécurisé<br><span>24/7 sous controle</span></h4>
               </li>
             </ul>
           </div>
@@ -201,8 +208,8 @@
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
           <div class="section-heading text-center">
-            <h6>| Video View</h6>
-            <h2>Get Closer View & Different Feeling</h2>
+            <h6>| Regarder la vidéo</h6>
+            <h2>Faire une visite virtuelle</h2>
           </div>
         </div>
       </div>
@@ -231,19 +238,19 @@
               <div class="col-lg-4">
                 <div class="counter">
                   <h2 class="timer count-title count-number" data-to="34" data-speed="1000"></h2>
-                   <p class="count-text ">Buildings<br>Finished Now</p>
+                   <p class="count-text ">Appartements<br>Reserve maintenant</p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
                   <h2 class="timer count-title count-number" data-to="12" data-speed="1000"></h2>
-                  <p class="count-text ">Years<br>Experience</p>
+                  <p class="count-text ">Années<br>Experience</p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
                   <h2 class="timer count-title count-number" data-to="24" data-speed="1000"></h2>
-                  <p class="count-text ">Awwards<br>Won 2023</p>
+                  <p class="count-text ">Prix<br>Gagné 2025</p>
                 </div>
               </div>
             </div>
@@ -258,8 +265,8 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="section-heading">
-            <h6>| Best Deal</h6>
-            <h2>Find Your Best Deal Right Now!</h2>
+            <h6>Les Meilleurs</h6>
+            <h2>Trouve ton compte!</h2>
           </div>
         </div>
         <div class="col-lg-12">
@@ -268,13 +275,13 @@
               <div class="nav-wrapper ">
                 <ul class="nav nav-tabs" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment" aria-selected="true">Appartment</button>
+                    <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment" aria-selected="true">Appartement</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#villa" type="button" role="tab" aria-controls="villa" aria-selected="false">Villa House</button>
+                    <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#villa" type="button" role="tab" aria-controls="villa" aria-selected="false">Villa </button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse" type="button" role="tab" aria-controls="penthouse" aria-selected="false">Penthouse</button>
+                    <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse" type="button" role="tab" aria-controls="penthouse" aria-selected="false">Chambres</button>
                   </li>
                 </ul>
               </div>              
@@ -284,11 +291,11 @@
                     <div class="col-lg-3">
                       <div class="info-table">
                         <ul>
-                          <li>Total Flat Space <span>185 m2</span></li>
-                          <li>Floor number <span>26th</span></li>
-                          <li>Number of rooms <span>4</span></li>
-                          <li>Parking Available <span>Yes</span></li>
-                          <li>Payment Process <span>Bank</span></li>
+                          <li>Superficie totale <span>185 m2</span></li>
+                          <li>Etages <span>03</span></li>
+                          <li>Nombre de chambres <span>4</span></li>
+                          <li>Parking disponible <span>oui</span></li>
+                          <li>Paiement sécurisé<span>paypal</span></li>
                         </ul>
                       </div>
                     </div>
@@ -296,11 +303,10 @@
                       <img src="assets/images/deal-01.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
-                      <h4>Extra Info About Property</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. 
-                      <br><br>When you need free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Portfolio, TemplateMo One Page Layouts, etc.</p>
+                      <h4>Informations supplémentaires</h4>
+                      <p>Vue panoramique, accès à une visite virtuelle immersive, système de recommandation personnalisé
                       <div class="icon-button">
-                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                        <a href="property-details.html"><i class="fa fa-calendar"></i> Faire une visite</a>
                       </div>
                     </div>
                   </div>
@@ -310,11 +316,11 @@
                     <div class="col-lg-3">
                       <div class="info-table">
                         <ul>
-                          <li>Total Flat Space <span>250 m2</span></li>
-                          <li>Floor number <span>26th</span></li>
-                          <li>Number of rooms <span>5</span></li>
-                          <li>Parking Available <span>Yes</span></li>
-                          <li>Payment Process <span>Bank</span></li>
+                          <li>Superficie totale<span>250 m2</span></li>
+                          <li>nombre d'étages <span>5</span></li>
+                          <li>Nombre de chambre <span>5</span></li>
+                          <li>Parking disponible <span>Oui</span></li>
+                          <li>Payment sécurisé <span>Paypal</span></li>
                         </ul>
                       </div>
                     </div>
@@ -322,10 +328,9 @@
                       <img src="assets/images/deal-02.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
-                      <h4>Detail Info About Villa</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <h4>Details du bien</h4>
                       <div class="icon-button">
-                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                        <a href="/visite_virtuelle"><i class="fa fa-calendar"></i> Faire une visite</a>
                       </div>
                     </div>
                   </div>
@@ -335,11 +340,11 @@
                     <div class="col-lg-3">
                       <div class="info-table">
                         <ul>
-                          <li>Total Flat Space <span>320 m2</span></li>
-                          <li>Floor number <span>34th</span></li>
-                          <li>Number of rooms <span>6</span></li>
-                          <li>Parking Available <span>Yes</span></li>
-                          <li>Payment Process <span>Bank</span></li>
+                          <li>Superficie <span>320 m2</span></li>
+                          <li>Nombre d'étages <span>4</span></li>
+                          <li>Nombre de chambres <span>6</span></li>
+                          <li>Parking disponible<span>Oui</span></li>
+                          <li>Paiement sécurisé <span>Paypal</span></li>
                         </ul>
                       </div>
                     </div>
@@ -347,10 +352,10 @@
                       <img src="assets/images/deal-03.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
-                      <h4>Extra Info About Penthouse</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
+                      <h4>Plus d'informations</h4>
+                      Cet appartement moderne situé à Yaoundé offre une surface habitable de 185 m² au 26ᵉ étage, avec 4 chambres spacieuses, 3 salles de bains, et un parking sécurisé pour deux véhicules. Conçu pour le confort urbain, il bénéficie d’une vue dégagée, d’un accès à une visite virtuelle immersive, et d’un système de recommandation intelligent qui adapte les suggestions aux préférences du locataire. Le contrat est prêt à signer, le paiement se fait par virement bancaire, et la sécurité est assurée 24h/24 pour une tranquillité totale
                       <div class="icon-button">
-                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                        <a href="/visite_virtuelle"><i class="fa fa-calendar"></i> Faire une visite</a>
                       </div>
                     </div>
                   </div>
@@ -368,8 +373,8 @@
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
           <div class="section-heading text-center">
-            <h6>| Properties</h6>
-            <h2>We Provide The Best Property You Like</h2>
+            <h6>| Biens</h6>
+            <h2>Nous avons tout ce dont vous avez besoin</h2>
           </div>
         </div>
       </div>
@@ -377,110 +382,58 @@
         <div class="col-lg-4 col-md-6">
           <div class="item">
             <a href="/property-details"><img src="assets/images/property-01.jpg" alt=""></a>
-            <span class="category">Luxury Villa</span>
-            <h6>$2.264.000</h6>
-            <h4><a href="/property-details">18 New Street Miami, OR 97219</a></h4>
+            <span class="category">Chambre moderne</span>
+            <h6>25000 FCFA</h6>
+            <h4><a href="/property-details">Awae Yaoundé</a></h4>
             <ul>
-              <li>Bedrooms: <span>8</span></li>
-              <li>Bathrooms: <span>8</span></li>
-              <li>Area: <span>545m2</span></li>
-              <li>Floor: <span>3</span></li>
-              <li>Parking: <span>6 spots</span></li>
+              <li>Chambre <span>1</span></li>
+              <li>Toilettes <span>1</span></li>
+              <li>Superficie <span>21 m2</span></li>
+              <li>Etage: <span>3</span></li>
+              <li>Parking: <span>6 stations</span></li>
             </ul>
             <div class="main-button">
-              <a href="/property-details">Schedule a visit</a>
+              <a href="/visite_virtuelle">Faire une visite</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
             <a href="/property-details"><img src="assets/images/property-02.jpg" alt=""></a>
-            <span class="category">Luxury Villa</span>
-            <h6>$1.180.000</h6>
-            <h4><a href="/property-details">54 Mid Street Florida, OR 27001</a></h4>
+            <span class="category">Appartement moderne</span>
+            <h6>300 000FCFA</h6>
+            <h4><a href="/property-details">Bonamoussadi/ Douala</a></h4>
             <ul>
-              <li>Bedrooms: <span>6</span></li>
-              <li>Bathrooms: <span>5</span></li>
-              <li>Area: <span>450m2</span></li>
-              <li>Floor: <span>3</span></li>
-              <li>Parking: <span>8 spots</span></li>
+              <li>Chambres <span>6</span></li>
+              <li>Toilettes <span>2</span></li>
+              <li>Superficie <span>450m2</span></li>
+              <li>Etage <span>3</span></li>
+              <li>Parking: <span>8 stations</span></li>
             </ul>
             <div class="main-button">
-              <a href="/property-details">Schedule a visit</a>
+              <a href="/visite_virtuelle">Faire une visite</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
             <a href="/property-details"><img src="assets/images/property-03.jpg" alt=""></a>
-            <span class="category">Luxury Villa</span>
-            <h6>$1.460.000</h6>
-            <h4><a href="/property-details">26 Old Street Miami, OR 38540</a></h4>
+            <span class="category">Appartement moderne</span>
+            <h6>200 000FCFA</h6>
+            <h4><a href="/property-details">Messassi</a></h4>
             <ul>
-              <li>Bedrooms: <span>5</span></li>
-              <li>Bathrooms: <span>4</span></li>
-              <li>Area: <span>225m2</span></li>
-              <li>Floor: <span>3</span></li>
-              <li>Parking: <span>10 spots</span></li>
+              <li>Chambres <span>5</span></li>
+              <li>Toilettes <span>4</span></li>
+              <li>Superficie <span>225m2</span></li>
+              <li>Etages <span>3</span></li>
+              <li>Parking: <span>10 stations</span></li>
             </ul>
             <div class="main-button">
-              <a href="/property-details">Schedule a visit</a>
+              <a href="/visite_virtuelle">Faire une visite</a>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="/property-details"><img src="assets/images/property-04.jpg" alt=""></a>
-            <span class="category">Apartment</span>
-            <h6>$584.500</h6>
-            <h4><a href="/property-details">12 New Street Miami, OR 12650</a></h4>
-            <ul>
-              <li>Bedrooms: <span>4</span></li>
-              <li>Bathrooms: <span>3</span></li>
-              <li>Area: <span>125m2</span></li>
-              <li>Floor: <span>25th</span></li>
-              <li>Parking: <span>2 cars</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="/property-details">Schedule a visit</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="/property-details"><img src="assets/images/property-05.jpg" alt=""></a>
-            <span class="category">Penthouse</span>
-            <h6>$925.600</h6>
-            <h4><a href="/property-details">34 Beach Street Miami, OR 42680</a></h4>
-            <ul>
-              <li>Bedrooms: <span>4</span></li>
-              <li>Bathrooms: <span>4</span></li>
-              <li>Area: <span>180m2</span></li>
-              <li>Floor: <span>38th</span></li>
-              <li>Parking: <span>2 cars</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="/property-details">Schedule a visit</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="/property-details"><img src="assets/images/property-06.jpg" alt=""></a>
-            <span class="category">Modern Condo</span>
-            <h6>$450.000</h6>
-            <h4><a href="/property-details">22 New Street Portland, OR 16540</a></h4>
-            <ul>
-              <li>Bedrooms: <span>3</span></li>
-              <li>Bathrooms: <span>2</span></li>
-              <li>Area: <span>165m2</span></li>
-              <li>Floor: <span>26th</span></li>
-              <li>Parking: <span>3 cars</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="/property-details">Schedule a visit</a>
-            </div>
-          </div>
+       
         </div>
       </div>
     </div>

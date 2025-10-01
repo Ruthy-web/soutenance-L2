@@ -87,9 +87,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/">Accueil</a></li>
           <li class="nav-item"><a class="nav-link" href="/apropos">À propos</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/creer_compte">Contact</a></li>
         </ul>
   </header>
    
