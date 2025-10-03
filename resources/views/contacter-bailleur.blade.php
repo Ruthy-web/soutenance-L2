@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     body {
@@ -71,7 +71,7 @@
         <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Bonjour, je suis intéressé par votre logement..."></textarea>
       </div>
 
-      <input type="hidden" name="bailleur_id" value="{{ $bailleur->id }}"> <!-- à adapter -->
+      <input type="hidden" name="bailleur_id" value="1"> <!-- ID du bailleur par défaut -->
 
       <div class="text-center">
         <button type="submit" class="btn btn-warning w-50">📩 Envoyer</button>
@@ -79,5 +79,7 @@
     </form>
   </div>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
 
   <style>
@@ -93,9 +96,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="/apropos">À propos</a></li>
-          <li class="nav-item"><a class="nav-link" href="/creer_compte">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="{{ route('welcome') }}">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('apropos') }}">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Connexion</a></li>
         </ul>
 
          <button id="theme-toggle">Changer mode</button>
@@ -124,8 +128,8 @@
     <h1 class="fw-bold mb-2">Bienvenue sur Empire-Immo</h1>
     <p class="mb-2">Votre plateforme de confiance pour location immobilière.</p>
     <div>
-      <a href="/connexion" class="btn btn-warning btn-custom">Se connecter</a>
-      <a href="/creer_compte" class="btn btn-warning btn-custom">S'inscrire</a>
+      <a href="{{ route('login') }}" class="btn btn-warning btn-custom">Se connecter</a>
+      <a href="{{ route('register') }}" class="btn btn-warning btn-custom">S'inscrire</a>
     </div>
   </div>
 
@@ -183,7 +187,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Appartement moderne</h5>
           <p class="card-text">2 chambres, centre-ville, 750 000FCFA/mois</p>
-          <a href="/creer_compte" class="btn btn-outline-dark btn-sm">
+          <a href="{{ route('register') }}" class="btn btn-outline-dark btn-sm">
    Voir détails
 </a>
         </div>
@@ -197,7 +201,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Maison familiale</h5>
           <p class="card-text">4 chambres, jardin, 120 000FCFA/mois</p>
-          <a href="/creer_compte" class="btn btn-outline-dark btn-sm">Voir détails</a>
+          <a href="{{ route('register') }}" class="btn btn-outline-dark btn-sm">Voir détails</a>
         </div>
       </div>
     </div>
@@ -209,7 +213,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Studio cosy</h5>
           <p class="card-text">Proche université, 450 000FCFA/mois</p>
-          <a href="/creer_compte" class="btn btn-outline-dark btn-sm">Voir détails</a>
+          <a href="{{ route('register') }}" class="btn btn-outline-dark btn-sm">Voir détails</a>
         </div>
       </div>
     </div>
@@ -292,7 +296,7 @@
         </div>
 
         <div class="text-center">
-        <a href="/creer_compte">
+        <a href="{{ route('register') }}">
           <button type="submit" class="btn btn-warning w-3  0">Envoyer</button>
           </a>
         </div>
@@ -330,10 +334,8 @@
   <p style="margin: 5px 0;">Contactez-nous : contact@immogestion.com</p>
 </footer>
 
-<!-- Font Awesome pour les icônes -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 
 

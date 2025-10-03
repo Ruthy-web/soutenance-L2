@@ -6,24 +6,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/dark-mode.css">
-
+    
     <title>Empire-immo</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Laravel Vite Assets (JavaScript seulement) -->
+    @vite(['resources/js/app.js'])
 
   </head>
 
-<body>
+<body class="bg-dark text-light">
   @if(session('success'))
   <div class="alert alert-success">
     {{ session('success') }}
@@ -32,7 +29,7 @@
 
 
   <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
+  <div id="js-preloader" class="js-preloader" style="display: none;">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -44,81 +41,77 @@
   </div>
   <!-- ***** Preloader End ***** -->
 
-  <div class="sub-header">
+  <!-- Sub Header -->
+  <div class="bg-secondary py-2">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-8">
-          <ul class="info">
-            <li><i class="fa fa-envelope"></i> Empireimmo@gmail.com</li>
-            <li><i class="fa fa-map"></i> Yaoundé- Cameroun</li>
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item me-3"><i class="fa fa-envelope me-1"></i> Empireimmo@gmail.com</li>
+            <li class="list-inline-item"><i class="fa fa-map me-1"></i> Yaoundé- Cameroun</li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">
-          <ul class="social-links">
-            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <ul class="list-inline mb-0 text-end">
+            <li class="list-inline-item me-2"><a href="#" class="text-warning"><i class="fab fa-facebook"></i></a></li>
+            <li class="list-inline-item me-2"><a href="https://x.com/minthu" target="_blank" class="text-warning"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item me-2"><a href="#" class="text-warning"><i class="fab fa-linkedin"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="text-warning"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                  <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-      <img src="logo.png" alt="Logo Empire-Immo" width="40" height="40" class="me-2">
-      Empire-Immo
-    </a>
-    
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li><a href="/bailleur" class="active">Accueil</a></li>
-                      <li><a href="/mes-logements">Mes logements</a></li>
-                      <li><a href="/reservation">Reservations</a></li>
-                      <li><a href="/contact">Contactez nous</a></li>
-                      <li><a href="/gerer-profil"><i class="fa fa-user"></i> Mon profil</a></li>
-                  </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <li>
-  <button id="darkModeToggle" class="btn btn-sm btn-outline-dark">🌙 Mode sombre</button>
-</li>
-
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
+      <!-- Logo -->
+      <a class="navbar-brand fw-bold d-flex align-items-center text-warning" href="#">
+        <img src="logo.png" alt="Logo Empire-Immo" width="40" height="40" class="me-2">
+        Empire-Immo
+      </a>
+      
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-warning" href="/bailleur">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" href="/mes-logements">Mes logements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" href="/reservation">Reservations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" href="/contact">Contactez nous</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" href="/gerer-profil"><i class="fa fa-user me-1"></i>Mon profil</a>
+          </li>
+          <li class="nav-item">
+            <button id="darkModeToggle" class="btn btn-sm btn-outline-warning ms-2">🌙 Mode sombre</button>
+          </li>
+        </ul>
+      </div>
     </div>
-  </header>
+  </nav>
   <!-- ***** Header Area End ***** -->
 
-  <div class="main-banner">
-    <div class="owl-carousel owl-banner">
-      <div class="item item-1">
-        <div class="header-text">
-          <span class="category">Yaoundé, <em>Cameroun</em></span>
-          <h2>Hurry!<br>Get the Best Villa for you</h2>
-        </div>
-      </div>
-      <div class="item item-2">
-        <div class="header-text">
-          <span class="category">Melbourne, <em>Australia</em></span>
-          <h2>Be Quick!<br>Get the best villa in town</h2>
-        </div>
-      </div>
-      <div class="item item-3">
-        <div class="header-text">
-          <span class="category">Miami, <em>South Florida</em></span>
-          <h2>Act Now!<br>Get the highest level penthouse</h2>
+  <!-- Main Banner -->
+  <div class="bg-dark py-5">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <span class="text-warning fs-5">Yaoundé, <em>Cameroun</em></span>
+          <h1 class="display-4 fw-bold text-warning mt-3">Hurry!</h1>
+          <h2 class="display-5 fw-bold text-light">Get the Best Villa for you</h2>
         </div>
       </div>
     </div>
@@ -127,57 +120,53 @@
   
 
 
-  <div class="video section">
+  <!-- Video Section -->
+  <div class="py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4 offset-lg-4">
-          <div class="section-heading text-center">
-            <h6>| Video View</h6>
-            <h2>Get Closer View & Different Feeling</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h6 class="text-warning">| Video View</h6>
+          <h2 class="text-light">Get Closer View & Different Feeling</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pb-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="position-relative">
+            <img src="assets/images/video-frame.jpg" alt="Video Preview" class="img-fluid rounded">
+            <a href="Video1.mp4" target="_blank" class="btn btn-warning btn-lg position-absolute top-50 start-50 translate-middle">
+              <i class="fa fa-play"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="video-content">
+  <!-- Statistics Section -->
+  <div class="bg-secondary py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
-          <div class="video-frame">
-            <img src="assets/images/video-frame.jpg" alt="">
-            <a href="Video1.mp4" target="_blank"><i class="fa fa-play"></i></a>
+      <div class="row text-center">
+        <div class="col-lg-4 mb-4">
+          <div class="text-warning">
+            <h2 class="display-4 fw-bold">34</h2>
+            <p class="fs-5">Buildings<br>Finished Now</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="fun-facts">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="wrapper">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="34" data-speed="1000"></h2>
-                   <p class="count-text ">Buildings<br>Finished Now</p>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="12" data-speed="1000"></h2>
-                  <p class="count-text ">Years<br>Experience</p>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="24" data-speed="1000"></h2>
-                  <p class="count-text ">Awwards<br>Won 2023</p>
-                </div>
-              </div>
-            </div>
+        <div class="col-lg-4 mb-4">
+          <div class="text-warning">
+            <h2 class="display-4 fw-bold">12</h2>
+            <p class="fs-5">Years<br>Experience</p>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="text-warning">
+            <h2 class="display-4 fw-bold">24</h2>
+            <p class="fs-5">Awards<br>Won 2023</p>
           </div>
         </div>
       </div>
@@ -324,37 +313,63 @@
   </footer>
 
   <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/counter.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <!-- jQuery doit être chargé en premier -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+  
+  <!-- Laravel Vite Assets (Livewire inclus) -->
+  @vite(['resources/js/app.js'])
 
 
   <script>
+  // Masquer le preloader immédiatement
+  document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('js-preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
+  });
+
+  // Initialiser le carousel
+  $(document).ready(function() {
+    $('.owl-banner').owlCarousel({
+      items: 1,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      nav: false,
+      dots: true
+    });
+  });
+
+  // Mode sombre
   const toggleButton = document.getElementById("darkModeToggle");
   const body = document.body;
 
-  // Vérifie si l'utilisateur a déjà choisi un mode (sauvegardé dans localStorage)
-  if (localStorage.getItem("darkMode") === "enabled") {
-    body.classList.add("dark-mode");
-    toggleButton.textContent = "☀️ Mode clair";
-  }
-
-  toggleButton.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-
-    if (body.classList.contains("dark-mode")) {
-      localStorage.setItem("darkMode", "enabled");
+  if (toggleButton) {
+    // Vérifie si l'utilisateur a déjà choisi un mode (sauvegardé dans localStorage)
+    if (localStorage.getItem("darkMode") === "enabled") {
+      body.classList.add("dark-mode");
       toggleButton.textContent = "☀️ Mode clair";
-    } else {
-      localStorage.setItem("darkMode", "disabled");
-      toggleButton.textContent = "🌙 Mode sombre";
     }
-  });
+
+    toggleButton.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+
+      if (body.classList.contains("dark-mode")) {
+        localStorage.setItem("darkMode", "enabled");
+        toggleButton.textContent = "☀️ Mode clair";
+      } else {
+        localStorage.setItem("darkMode", "disabled");
+        toggleButton.textContent = "🌙 Mode sombre";
+      }
+    });
+  }
 </script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   </body>
 </html>

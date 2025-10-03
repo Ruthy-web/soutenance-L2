@@ -13,31 +13,31 @@ test('login screen can be rendered', function () {
 });
 
 test('users can authenticate using the login screen', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->create(['status' => 'bailleur']);
 
     $response = Livewire::test(Login::class)
-        ->set('email', $user->email)
-        ->set('password', 'password')
-        ->call('login');
+        ->set('form.email', $user->email)
+        ->set('form.password', 'password')
+        ->call('authenticate');
 
     $response
         ->assertHasNoErrors()
-        ->assertRedirect(route('dashboard', absolute: false));
+        ->assertRedirect(route('bailleur.dashboard', absolute: false));
 
-    $this->assertAuthenticated();
+    expect(auth()->check())->toBeTrue();
 });
 
 test('users can not authenticate with invalid password', function () {
     $user = User::factory()->create();
 
     $response = Livewire::test(Login::class)
-        ->set('email', $user->email)
-        ->set('password', 'wrong-password')
-        ->call('login');
+        ->set('form.email', $user->email)
+        ->set('form.password', 'wrong-password')
+        ->call('authenticate');
 
-    $response->assertHasErrors('email');
+    $response->assertHasErrors('form.email');
 
-    $this->assertGuest();
+    expect(auth()->check())->toBeFalse();
 });
 
 test('users can logout', function () {
@@ -47,5 +47,5 @@ test('users can logout', function () {
 
     $response->assertRedirect('/');
 
-    $this->assertGuest();
+    expect(auth()->check())->toBeFalse();
 });

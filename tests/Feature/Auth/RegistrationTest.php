@@ -13,15 +13,17 @@ test('registration screen can be rendered', function () {
 
 test('new users can register', function () {
     $response = Livewire::test(Register::class)
-        ->set('name', 'Test User')
-        ->set('email', 'test@example.com')
-        ->set('password', 'password')
-        ->set('password_confirmation', 'password')
+        ->set('form.nom', 'Test')
+        ->set('form.prenom', 'User')
+        ->set('form.email', 'test@example.com')
+        ->set('form.password', 'password')
+        ->set('form.password_confirmation', 'password')
+        ->set('form.status', 'locataire')
         ->call('register');
 
     $response
         ->assertHasNoErrors()
-        ->assertRedirect(route('dashboard', absolute: false));
+        ->assertRedirect(route('locataire.dashboard', absolute: false));
 
-    $this->assertAuthenticated();
+    expect(auth()->check())->toBeTrue();
 });

@@ -12,11 +12,9 @@ use App\Http\Controllers\PanoramaController;
 use App\Http\Controllers\PaiementController;
 
 use App\Http\Controllers\VirtualTourController;
+use App\Livewire\Biens\BienIndex;
+use App\Livewire\Biens\BienForm;
 
-
-Route::get('connexion', function () {
-    return view('livewire.auth.connexion');
-})->name('connexion');
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,37 +24,112 @@ Route::get('properties', function () {
     return view('properties');
 })->name('properties');
 
-Route::get('creer_compte', function(){
-    return view('creer_compte');
-})->name('creer_compte');
+// Routes protégées par authentification
+Route::middleware('auth')->group(function () {
+    Route::get('locataire', function(){
+        return view('locataire');
+    })->name('locataire.dashboard');
+    
+    Route::get('bailleur', function(){
+        return view('bailleur');
+    })->name('bailleur.dashboard');
+    
+    Route::get('publier_logement', function(){
+        return view('publier_logement');
+    })->name('publier_logement');
+    
+    Route::get('mes-logements', function () {
+        return view('mes-logements');
+    })->name('mes-logements');
+    
+    Route::get('ajouter-logement', function () {
+        return view('ajouter-logement');
+    })->name('ajouter-logement');
+    
+    Route::post('ajouter-logement', function (Request $request) {
+        // Validation des données
+        $request->validate([
+            'titre' => 'required|string|max:255',
+            'description' => 'required|string',
+            'localisation' => 'required|string|max:255',
+            'surface' => 'required|numeric|min:1',
+            'chambres' => 'required|integer|min:1',
+            'salles_bain' => 'required|integer|min:1',
+            'document_legal' => 'required|file|mimes:pdf,jpg,jpeg,png|max:10240',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+        ]);
 
-Route::get('motdepasse_oublié', function(){
-    return view('livewire.auth.motdepasse_oublié');
-})->name('motdepasse_oublié');
+        // Traitement du fichier document légal
+        if ($request->hasFile('document_legal')) {
+            $file = $request->file('document_legal');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/documents', $filename);
+        }
 
+        // Création du bien (simulation - à adapter selon votre modèle)
+        $bien = new \App\Models\Bien();
+        $bien->titre = $request->titre;
+        $bien->description = $request->description;
+        $bien->localisation = $request->localisation;
+        $bien->surface = $request->surface;
+        $bien->chambres = $request->chambres;
+        $bien->salles_bain = $request->salles_bain;
+        $bien->latitude = $request->latitude;
+        $bien->longitude = $request->longitude;
+        $bien->document_legal = $filename ?? null;
+        $bien->user_id = Auth::id();
+        $bien->save();
+
+        return redirect()->route('mes-logements')->with('success', 'Logement ajouté avec succès !');
+    })->name('ajouter-logement.store');
+    
+    Route::get('reserver', function () {
+        return view('reserver');
+    })->name('reserver');
+    
+    Route::get('gerer-profil', function () {
+        return view('gerer-profil');
+    })->name('gerer-profil');
+    
+    Route::get('contacter-bailleur', function () {
+        return view('contacter-bailleur');
+    })->name('contacter-bailleur');
+    
+    Route::get('reservation', function () {
+        return view('reservation');
+    })->name('reservation');
+    
+        Route::get('laisser-avis', function () {
+            return view('laisser-avis');
+        })->name('laisser-avis');
+
+        // Route pour envoyer des messages
+        Route::post('message/envoyer', function () {
+            return response()->json(['success' => true, 'message' => 'Message envoyé avec succès']);
+        })->name('message.envoyer');
+    
+    // Settings routes
+    Route::get('/settings/profile', App\Livewire\Settings\Profile::class)->name('settings.profile');
+    Route::get('/settings/password', App\Livewire\Settings\Password::class)->name('settings.password');
+    Route::get('/settings/appearance', App\Livewire\Settings\Appearance::class)->name('settings.appearance');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+// Routes publiques
 Route::get('apropos', function(){
     return view('apropos');
 })->name('apropos');
 
-Route::get('test', function(){
-    return view('test');
-})->name('test');
-
-Route::get('locataire', function(){
-    return view('locataire');
-})->name('locataire.dashboard');
-
-Route::get('bailleur', function(){
-    return view('bailleur');
-})->name('bailleur.dashboard');
-
-Route::get('publier_logement', function(){
-    return view('publier_logement');
-})->name('publier_logement');
-
 Route::get('contact', function(){
     return view('contact');
 })->name('contact');
+
+Route::get('test', function(){
+    return view('test');
+})->name('test');
 
 Route::get('property-details', function () {
     return view('property-details');
@@ -69,42 +142,6 @@ Route::get('visite_virtuelle', function () {
 Route::get('tour', function () {
     return view('tour');
 })->name('tour');
-
-Route::get('laisser-avis', function () {
-    return view('laisser-avis');
-})->name('laisser-avis');
-
-Route::get('reserver', function () {
-    return view('reserver');
-})->name('gerer-profil');
-
-Route::get('gerer-profil', function () {
-    return view('gerer-profil');
-})->name('reserver');
-
-Route::get('contacter-bailleur', function () {
-    return view('contacter-bailleur');
-})->name('contacter-bailleur');
-
-Route::get('reservation', function () {
-    return view('reservation');
-})->name('reservation');
-
-Route::get('ajouter-logement', function () {
-    return view('ajouter-logement');
-})->name('ajouter-logement');
-
-Route::get('mes-logements', function () {
-    return view('mes-logements');
-})->name('mes-logements');
-
-Route::get('admin', function () {
-    return view('admin');
-})->name('admin');
-
-Route::get('users', function () {
-    return view('users');
-})->name('users');
 
 Route::get('fonctionnalités', function () {
     return view('fonctionnalités');
@@ -121,7 +158,7 @@ Route::get('inscription_success', function () {
 
 Route::post('/logout', function () {
     Auth::logout();
-    return redirect('/login');
+    return redirect('/');
 })->name('logout');
 
 
@@ -143,18 +180,15 @@ Route::post('/upload-panorama', function (Request $request) {
 
 
 
-Route::get('/assemble-panorama', [PanoramaController::class, 'assemble']);
+Route::post('/assemble-panorama', [PanoramaController::class, 'assemble'])->name('panorama.assemble');
+// Biens - Livewire CRUD
+Route::get('/biens', BienIndex::class)->name('biens.index');
+Route::get('/biens/create', BienForm::class)->name('biens.create');
+Route::get('/biens/{id}/edit', BienForm::class)->name('biens.edit');
 
 
-Route::post('/creer_compte', [RegisterController::class, 'register'])->name('creer_compte');
-Route::post('/connexion', [RegisterController::class, 'login'])->name('connexion.submit');
-Route::post('/motdepasse_oublié', [RegisterController::class, 'forgotpassword']);
+// Routes d'authentification supprimées - utilisent maintenant auth.php avec Livewire
 use App\Http\Controllers\Admin\UserController;
-
-Route::prefix('admin')->group(function () {
-    Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
-});
-
 
 Route::prefix('admin')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');

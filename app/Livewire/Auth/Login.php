@@ -15,35 +15,40 @@ use Livewire\Component;
 #[Layout('components.layouts.auth')]
 class Login extends Component
 {
-    #[Validate('required|string|email')]
-    public string $email = '';
-
-    #[Validate('required|string')]
-    public string $password = '';
+    public array $form = [
+        'email' => '',
+        'password' => '',
+    ];
 
     public bool $remember = false;
 
     /**
      * Handle an incoming authentication request.
      */
-    public function login(): void
+    public function authenticate(): void
     {
-        $this->validate();
+        $this->validate([
+            'form.email' => 'required|string|email',
+            'form.password' => 'required|string',
+        ]);
 
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+        if (! Auth::attempt(['email' => $this->form['email'], 'password' => $this->form['password']], $this->remember)) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
+                'form.email' => __('auth.failed'),
             ]);
         }
 
         RateLimiter::clear($this->throttleKey());
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        // Redirection basée sur le statut utilisateur
+        $user = Auth::user();
+        $redirectRoute = $user->status === 'bailleur' ? 'bailleur.dashboard' : 'locataire.dashboard';
+        $this->redirectIntended(default: route($redirectRoute, absolute: false), navigate: true);
     }
 
     /**
@@ -72,6 +77,6 @@ class Login extends Component
      */
     protected function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->email).'|'.request()->ip());
+        return Str::transliterate(Str::lower($this->form['email']).'|'.request()->ip());
     }
 }

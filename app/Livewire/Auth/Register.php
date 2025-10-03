@@ -13,13 +13,14 @@ use Livewire\Component;
 #[Layout('components.layouts.auth')]
 class Register extends Component
 {
-    public string $name = '';
-
-    public string $email = '';
-
-    public string $password = '';
-
-    public string $password_confirmation = '';
+    public array $form = [
+        'nom' => '',
+        'prenom' => '',
+        'email' => '',
+        'password' => '',
+        'password_confirmation' => '',
+        'status' => 'locataire',
+    ];
 
     /**
      * Handle an incoming registration request.
@@ -27,17 +28,27 @@ class Register extends Component
     public function register(): void
     {
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+            'form.nom' => ['required', 'string', 'max:255'],
+            'form.prenom' => ['required', 'string', 'max:255'],
+            'form.email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
+            'form.password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+            'form.status' => ['required', 'string', 'in:locataire,bailleur'],
         ]);
 
-        $validated['password'] = Hash::make($validated['password']);
+        $userData = [
+            'nom' => $validated['form']['nom'],
+            'prenom' => $validated['form']['prenom'],
+            'email' => $validated['form']['email'],
+            'password' => Hash::make($validated['form']['password']),
+            'status' => $validated['form']['status'],
+        ];
 
-        event(new Registered(($user = User::create($validated))));
+        event(new Registered(($user = User::create($userData))));
 
         Auth::login($user);
 
-        $this->redirect(route('dashboard', absolute: false), navigate: true);
+        // Redirection basée sur le statut
+        $redirectRoute = $user->status === 'bailleur' ? 'bailleur.dashboard' : 'locataire.dashboard';
+        $this->redirect(route($redirectRoute, absolute: false), navigate: true);
     }
 }

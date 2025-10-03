@@ -1,3 +1,69 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h4 m-0">Visite virtuelle</h1>
+    <a href="{{ route('welcome') }}" class="btn btn-outline-secondary">Retour</a>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-12 col-lg-8">
+      <div id="tour-canvas" class="bg-dark rounded position-relative" style="height: 60vh;">
+        <div class="position-absolute top-50 start-50 translate-middle text-white-50">
+          Chargement du panorama...
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Informations</h5>
+          <div id="tour-info">
+            <div class="text-muted">Sélectionnez un hotspot pour voir les détails.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Paramètres</h6>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="autoRotateSwitch">
+            <label class="form-check-label" for="autoRotateSwitch">Rotation automatique</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.VIRTUAL_TOUR_CONFIG = @json($tourConfig);
+  window.VIRTUAL_TOUR_PANORAMAS = @json($panoramas);
+</script>
+<script>
+  // Configuration pour votre implémentation Three.js existante
+  document.addEventListener('DOMContentLoaded', () => {
+    const config = window.VIRTUAL_TOUR_CONFIG || {};
+    const panoramas = window.VIRTUAL_TOUR_PANORAMAS || {};
+    
+    // Passer les données à votre classe AdvancedVirtualTour
+    window.tourConfig = {
+      ...config,
+      panoramas: panoramas,
+      startPanorama: config.startPanorama || Object.keys(panoramas)[0]
+    };
+    
+    // Votre classe AdvancedVirtualTour dans app.js va automatiquement s'initialiser
+    console.log('Configuration passée à AdvancedVirtualTour:', window.tourConfig);
+  });
+</script>
+
+<!-- Charger votre implémentation Three.js via Vite -->
+@vite(['resources/js/app.js'])
+@endsection
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -441,5 +507,7 @@
     });
   </script>
  
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </htm
